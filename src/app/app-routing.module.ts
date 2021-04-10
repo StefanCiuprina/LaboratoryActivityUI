@@ -8,6 +8,7 @@ import { RegistrationComponent } from './user/registration/registration.componen
 import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { StudentPanelComponent } from './student-panel/student-panel.component';
+import { StudentsInfoComponent } from './teacher-panel/students-info/students-info.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/user/login',pathMatch:'full'},
@@ -20,7 +21,10 @@ const routes: Routes = [
   },
   {path:'home',component:HomeComponent,canActivate:[AuthGuard]},
   {path:'forbidden',component:ForbiddenComponent},
-  {path:'teacherpanel',component:TeacherPanelComponent,canActivate:[AuthGuard],data :{permittedRoles:['Teacher']}},
+  {path:'teacherpanel',component:TeacherPanelComponent,canActivate:[AuthGuard],data :{permittedRoles:['Teacher']},
+  children: [
+    {path: 'studentsinfo', component:StudentsInfoComponent}
+  ]},
   {path:'studentpanel',component:StudentPanelComponent,canActivate:[AuthGuard],data :{permittedRoles:['Student']}}
 ];
 

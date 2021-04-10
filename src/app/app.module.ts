@@ -16,6 +16,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { TeacherPanelComponent } from './teacher-panel/teacher-panel.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { StudentPanelComponent } from './student-panel/student-panel.component';
+import { StudentsInfoComponent } from './teacher-panel/students-info/students-info.component';
+import { StudentsInfoFormComponent } from './teacher-panel/students-info/students-info-form/students-info-form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { StudentPanelComponent } from './student-panel/student-panel.component';
     HomeComponent,
     TeacherPanelComponent,
     ForbiddenComponent,
-    StudentPanelComponent
+    StudentPanelComponent,
+    StudentsInfoComponent,
+    StudentsInfoFormComponent
   ],
   imports: [
     BrowserModule,
