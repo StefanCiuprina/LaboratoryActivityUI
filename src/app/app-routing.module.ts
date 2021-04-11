@@ -9,6 +9,7 @@ import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { StudentPanelComponent } from './student-panel/student-panel.component';
 import { StudentsInfoComponent } from './teacher-panel/students-info/students-info.component';
+import { RegistrationStudentComponent } from './user/registration-student/registration-student.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/user/login',pathMatch:'full'},
@@ -16,7 +17,8 @@ const routes: Routes = [
     path: 'user', component: UserComponent,
     children: [
       { path: 'registration', component: RegistrationComponent },
-      { path: 'login', component: LoginComponent }
+      { path: 'login', component: LoginComponent },
+      { path: 'student-registration', component: RegistrationStudentComponent }
     ]
   },
   {path:'home',component:HomeComponent,canActivate:[AuthGuard]},

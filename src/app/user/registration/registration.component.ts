@@ -11,6 +11,8 @@ export class RegistrationComponent implements OnInit {
 
   constructor(public service: UserService, private toastr: ToastrService) { }
 
+  registerType: string = "teacher";
+
   ngOnInit() {
     this.service.formModel.reset();
   }

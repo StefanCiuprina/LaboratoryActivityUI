@@ -18,6 +18,7 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { StudentPanelComponent } from './student-panel/student-panel.component';
 import { StudentsInfoComponent } from './teacher-panel/students-info/students-info.component';
 import { StudentsInfoFormComponent } from './teacher-panel/students-info/students-info-form/students-info-form.component';
+import { RegistrationStudentComponent } from './user/registration-student/registration-student.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { StudentsInfoFormComponent } from './teacher-panel/students-info/student
     ForbiddenComponent,
     StudentPanelComponent,
     StudentsInfoComponent,
-    StudentsInfoFormComponent
+    StudentsInfoFormComponent,
+    RegistrationStudentComponent
   ],
   imports: [
     BrowserModule,

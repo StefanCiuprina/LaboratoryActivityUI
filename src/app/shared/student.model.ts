@@ -9,4 +9,6 @@ export class Student {
     groupId: number = 0;
     hobby: string = '';
     token: string = '';
+
+    registered: boolean = false;
 }

@@ -12,6 +12,7 @@ export class UserService {
 
   formModel = this.fb.group({
     UserName: ['', Validators.required],
+    Token: ['', Validators.required],
     Email: ['', Validators.email],
     FullName: [''],
     Passwords: this.fb.group({
@@ -41,6 +42,15 @@ export class UserService {
       Password: this.formModel.value.Passwords.Password
     };
     return this.http.post(this.BaseURI + '/ApplicationUser/Register', body);
+  }
+
+  registerStudent() {
+    var body = {
+      UserName: this.formModel.value.UserName,
+      Token: this.formModel.value.Token,
+      Password: this.formModel.value.Passwords.Password
+    };
+    return this.http.put(this.BaseURI + '/ApplicationUser/SetUserRegistered', body);
   }
 
   login(formData) {

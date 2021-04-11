@@ -25,6 +25,10 @@ export class StudentService {
     return this.http.delete(`${this.baseURL}/${id}`);
   }
 
+  setStudentRegistered() {
+    return this.http.post(this.baseURL + '/SetUserRegistered', this.formData);
+  }
+
   refreshList() {
     this.http.get(this.baseURL)
       .toPromise()
