@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { StudentPanelComponent } from './student-panel/student-panel.component';
 import { StudentsInfoComponent } from './teacher-panel/students-info/students-info.component';
 import { RegistrationStudentComponent } from './user/registration-student/registration-student.component';
+import { GroupsComponent } from './teacher-panel/groups/groups.component';
+import { LabsComponent } from './teacher-panel/labs/labs.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/user/login',pathMatch:'full'},
@@ -25,7 +27,9 @@ const routes: Routes = [
   {path:'forbidden',component:ForbiddenComponent},
   {path:'teacherpanel',component:TeacherPanelComponent,canActivate:[AuthGuard],data :{permittedRoles:['Teacher']},
   children: [
-    {path: 'studentsinfo', component:StudentsInfoComponent}
+    {path: 'studentsinfo', component:StudentsInfoComponent},
+    {path: 'groups', component:GroupsComponent},
+    {path: 'labs', component:LabsComponent}
   ]},
   {path:'studentpanel',component:StudentPanelComponent,canActivate:[AuthGuard],data :{permittedRoles:['Student']}}
 ];

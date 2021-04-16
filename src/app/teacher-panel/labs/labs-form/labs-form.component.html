@@ -1,0 +1,60 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="id" [value]="service.formData.labId" />
+    <div class="form-group">
+        <label>Name</label>
+        <select class="form-control form-control-lg" name="name"
+        #name="ngModel" [(ngModel)]="service.formData.name"
+        required [class.invalid]="name.invalid && name.touched">
+            <option *ngFor="let labName of labNames">
+                {{labName}}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group col-md-6">
+        <label>Group</label>
+        <div matTooltip="You can't modify the group of a lab" [matTooltipDisabled]="service.formData.labId == 0">
+            <select class="form-control form-control-lg" name="groupId"
+            #groupId="ngModel" [(ngModel)]="service.formData.groupId"
+            required [class.invalid]="groupId.invalid && groupId.touched"
+            [disabled]="service.formData.labId > 0">
+                <option *ngFor="let group of groups" value="{{group.groupId}}">
+                    {{group.name}} (id: {{group.groupId}})
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <mat-form-field>
+          <input matInput [ngxMatDatetimePicker]="picker1"
+          placeholder="Date & Time" name="dateTime"
+          #dateTime="ngModel" [(ngModel)]="service.formData.dateTime">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <ngx-mat-datetime-picker #picker1></ngx-mat-datetime-picker>
+        </mat-form-field>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Title</label>
+            <input class="form-control form-control-lg" placeholder="Title" name="title"
+                #title="ngModel" [(ngModel)]="service.formData.title"
+                required minlength="4" [class.invalid]="title.invalid && title.touched">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Curricula</label>
+            <input class="form-control form-control-lg" placeholder="Curricula" name="curricula"
+                #curricula="ngModel" [(ngModel)]="service.formData.curricula"
+                required minlength="4" [class.invalid]="curricula.invalid && curricula.touched">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>Description</label>
+            <textarea cols="40" rows="5" class="form-control form-control-lg" placeholder="Description" name="description"
+                #description="ngModel" [(ngModel)]="service.formData.description"
+                required [class.invalid]="description.invalid && description.touched"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+    </div>
+</form>

@@ -1,6 +1,7 @@
 import { UserService } from './../../shared/user.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { StudentService } from 'src/app/shared/student.service';
 
 @Component({
   selector: 'app-registration-student',
@@ -9,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegistrationStudentComponent implements OnInit {
 
-  constructor(public service: UserService, private toastr: ToastrService) { }
+  constructor(public service: StudentService, private toastr: ToastrService) { }
 
   registerType: string = "teacher";
 

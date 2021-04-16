@@ -2,8 +2,9 @@
     <a class="navbar-brand text-white">Welcome, Teacher!</a>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
+        <a class="nav-link" routerLink="/teacherpanel/groups" routerLinkActive='active'>Groups</a>
         <a class="nav-link" routerLink="/teacherpanel/studentsinfo" routerLinkActive='active'>Students</a>
-        <a class="nav-link" routerLink="/teacherpanel" routerLinkActive='active'>Performances</a>
+        <a class="nav-link" routerLink="/teacherpanel/labs" routerLinkActive='active'>Labs</a>
       </li>
     </ul>
     <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>

@@ -3,6 +3,8 @@ import { StudentService } from 'src/app/shared/student.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 import { Student } from 'src/app/shared/student.model';
+import { GroupService } from 'src/app/shared/group.service';
+import { Group } from 'src/app/shared/group.model';
 
 @Component({
   selector: 'app-students-info-form',
@@ -11,9 +13,16 @@ import { Student } from 'src/app/shared/student.model';
 })
 export class StudentsInfoFormComponent implements OnInit {
 
-  constructor(public service: StudentService, private toastr: ToastrService) { }
+  groups: Group[];
+
+  constructor(public service: StudentService, public groupService: GroupService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.retreiveGroups();
+  }
+
+  async retreiveGroups() {
+    this.groups = await this.groupService.getGroups();
   }
 
   onSubmit(form: NgForm) {
