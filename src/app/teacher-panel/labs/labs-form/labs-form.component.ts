@@ -5,6 +5,9 @@ import { LabService } from 'src/app/shared/lab.service';
 import { Lab } from 'src/app/shared/lab.model';
 import { Group } from 'src/app/shared/group.model';
 import { GroupService } from 'src/app/shared/group.service';
+import { AttendanceService } from 'src/app/shared/attendance.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-labs-form',
   templateUrl: './labs-form.component.html',
@@ -15,7 +18,8 @@ export class LabsFormComponent implements OnInit {
   labNames: string[];
   groups: Group[];
 
-  constructor(public service: LabService, public groupService: GroupService, private toastr: ToastrService) { }
+  constructor(private router: Router, public service: LabService, public groupService: GroupService,
+    public attendanceService: AttendanceService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.retreiveLabNames();
@@ -45,10 +49,17 @@ export class LabsFormComponent implements OnInit {
       res => {
         this.resetForm(form);
         this.service.refreshList();
-        this.toastr.success('Submitted successfully.', 'Lab')
+        this.attendanceService.postAttendances((res as Lab).labId).subscribe(
+          res => {
+            this.toastr.success('Submitted successfully.', 'Lab')
+          },
+          err => {
+            this.toastr.error('An error occured creating the attendance list. Please check your data.', 'Lab')
+          }
+        );
       },
       err => { 
-        this.toastr.error('An error occured. Please check your data.', 'Lab')
+        this.toastr.error('An error occured creating the lab. Please check your data.', 'Lab')
        }
     );
   }
@@ -70,6 +81,11 @@ export class LabsFormComponent implements OnInit {
   resetForm(form: NgForm) {
     form.form.reset();
     this.service.formData = new Lab();
+  }
+
+  labAttendance(labId: number) {
+    localStorage.setItem('labId', labId.toString());
+    this.router.navigateByUrl('/teacherpanel/labs/attendance');
   }
 
 }

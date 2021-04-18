@@ -33,6 +33,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { AttendanceComponent } from './teacher-panel/labs/attendance/attendance.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     GroupsComponent,
     GroupsFormComponent,
     LabsComponent,
-    LabsFormComponent
+    LabsFormComponent,
+    AttendanceComponent
   ],
   imports: [
     BrowserModule,

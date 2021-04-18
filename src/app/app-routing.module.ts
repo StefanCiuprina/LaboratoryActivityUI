@@ -12,6 +12,7 @@ import { StudentsInfoComponent } from './teacher-panel/students-info/students-in
 import { RegistrationStudentComponent } from './user/registration-student/registration-student.component';
 import { GroupsComponent } from './teacher-panel/groups/groups.component';
 import { LabsComponent } from './teacher-panel/labs/labs.component';
+import { AttendanceComponent } from './teacher-panel/labs/attendance/attendance.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/user/login',pathMatch:'full'},
@@ -29,7 +30,8 @@ const routes: Routes = [
   children: [
     {path: 'studentsinfo', component:StudentsInfoComponent},
     {path: 'groups', component:GroupsComponent},
-    {path: 'labs', component:LabsComponent}
+    {path: 'labs', component:LabsComponent},
+    {path: 'labs/attendance', component:AttendanceComponent}
   ]},
   {path:'studentpanel',component:StudentPanelComponent,canActivate:[AuthGuard],data :{permittedRoles:['Student']}}
 ];

@@ -47,7 +47,7 @@
                 required minlength="4" [class.invalid]="curricula.invalid && curricula.touched">
         </div>
 
-        <div class="form-group col-md-6">
+        <div class="form-group">
             <label>Description</label>
             <textarea cols="40" rows="5" class="form-control form-control-lg" placeholder="Description" name="description"
                 #description="ngModel" [(ngModel)]="service.formData.description"
@@ -56,5 +56,10 @@
     </div>
     <div class="form-group">
         <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="button" (click)="labAttendance(service.formData.labId)"
+        [disabled]="service.formData.labId==0">Attendance</button>
     </div>
 </form>
