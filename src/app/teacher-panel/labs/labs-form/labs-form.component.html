@@ -61,5 +61,8 @@
     <div class="form-group">
         <button class="btn btn-info btn-lg btn-block" type="button" (click)="labAttendance(service.formData.labId)"
         [disabled]="service.formData.labId==0">Attendance</button>
+
+        <button class="btn btn-info btn-lg btn-block" type="button" (click)="labAssignment(service.formData.labId)"
+        [disabled]="service.formData.labId==0">Assignment</button>
     </div>
 </form>

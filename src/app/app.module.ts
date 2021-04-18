@@ -34,6 +34,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { AttendanceComponent } from './teacher-panel/labs/attendance/attendance.component';
+import { AssignmentComponent } from './teacher-panel/labs/assignment/assignment.component';
+import { SubmissionsComponent } from './teacher-panel/labs/submissions/submissions.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { AttendanceComponent } from './teacher-panel/labs/attendance/attendance.
     GroupsFormComponent,
     LabsComponent,
     LabsFormComponent,
-    AttendanceComponent
+    AttendanceComponent,
+    AssignmentComponent,
+    SubmissionsComponent
   ],
   imports: [
     BrowserModule,

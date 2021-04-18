@@ -38,6 +38,11 @@ div.form-group.required>label:first-child:after{
     opacity:1;
 }
 
+button {
+    margin-top: 5px;
+    margin-left :5px
+}
+
 .wrapper {
     display: flex;
     align-items: center;

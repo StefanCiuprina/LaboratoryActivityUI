@@ -37,4 +37,9 @@ export class AttendanceComponent implements OnInit {
     this.router.navigate(['/user/login']);
   }
 
+  navigateBackToLabs(){
+    localStorage.removeItem('labId');
+    this.router.navigate(['/teacherpanel/labs']);
+  }
+
 }

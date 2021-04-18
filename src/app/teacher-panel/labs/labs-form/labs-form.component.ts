@@ -88,4 +88,9 @@ export class LabsFormComponent implements OnInit {
     this.router.navigateByUrl('/teacherpanel/labs/attendance');
   }
 
+  labAssignment(labId: number) {
+    localStorage.setItem('labId', labId.toString());
+    this.router.navigateByUrl('/teacherpanel/labs/assignment');
+  }
+
 }

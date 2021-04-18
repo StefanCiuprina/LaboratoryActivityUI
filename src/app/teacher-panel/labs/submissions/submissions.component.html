@@ -1,15 +1,18 @@
 <div class="jumbotron py-3">
-    <h1 class="display-4 text-center">Lab Attendance</h1>
+    <h1 class="display-4 text-center">Assignment Submissions</h1>
   </div>
   
   <div class="row">
-    <div class="col-sm-6 mx-auto">
+    <div class="col">
         <table class="table">
             <thead class="thead-light">
                 <tr>
                     <th>Student ID</th>
                     <th>Student Name</th>
-                    <th>State</th>
+                    <th>Link</th>
+                    <th>Comment</th>
+                    <th>Submission Date</th>
+                    <th>Grade</th>
                     <th></th>
                 </tr>
             </thead>
@@ -18,17 +21,17 @@
                     <td (click)="populateForm(pd)">{{pd.studentId}}</td>
                     <td (click)="populateForm(pd)">{{pd.studentName}}</td>
                     <td>
-                        <select class="form-control form-control-lg" name="stateId"
-                        #groupId="ngModel" [(ngModel)]="pd.stateId"
-                        value="pd.stateId" selected>
-                            <option *ngFor="let state of states" value="{{state.stateId}}" (click)="this.setState(pd, state.stateId)">
-                                {{state.name}}
+                        <select class="form-control form-control-lg" name="grade"
+                        #groupId="ngModel" [(ngModel)]="pd.grade"
+                        value="pd.grade" selected>
+                            <option *ngFor="let grade of grades" (click)="this.setGrade(pd, state.grade)">
+                                {{grade}}
                             </option>
                         </select>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <button class="btn btn-info btn-lg btn-block" type="button" (click)="navigateBackToLabs()">Back to labs</button>
+        <button class="btn btn-info btn-lg btn-block" type="button" (click)="navigateBackToAssignment()">Back to assignment</button>
     </div>
   </div>

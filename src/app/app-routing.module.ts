@@ -13,6 +13,8 @@ import { RegistrationStudentComponent } from './user/registration-student/regist
 import { GroupsComponent } from './teacher-panel/groups/groups.component';
 import { LabsComponent } from './teacher-panel/labs/labs.component';
 import { AttendanceComponent } from './teacher-panel/labs/attendance/attendance.component';
+import { AssignmentComponent } from './teacher-panel/labs/assignment/assignment.component';
+import { SubmissionsComponent } from './teacher-panel/labs/submissions/submissions.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/user/login',pathMatch:'full'},
@@ -31,7 +33,9 @@ const routes: Routes = [
     {path: 'studentsinfo', component:StudentsInfoComponent},
     {path: 'groups', component:GroupsComponent},
     {path: 'labs', component:LabsComponent},
-    {path: 'labs/attendance', component:AttendanceComponent}
+    {path: 'labs/attendance', component:AttendanceComponent},
+    {path: 'labs/assignment', component:AssignmentComponent},
+    {path: 'labs/assignment/submissions', component:SubmissionsComponent}
   ]},
   {path:'studentpanel',component:StudentPanelComponent,canActivate:[AuthGuard],data :{permittedRoles:['Student']}}
 ];
