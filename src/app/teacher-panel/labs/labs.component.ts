@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Lab } from 'src/app/shared/lab.model';
 import { LabService } from '../../shared/lab.service'
 import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-labs',
   templateUrl: './labs.component.html',

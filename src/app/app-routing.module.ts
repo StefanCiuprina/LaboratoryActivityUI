@@ -15,6 +15,9 @@ import { LabsComponent } from './teacher-panel/labs/labs.component';
 import { AttendanceComponent } from './teacher-panel/labs/attendance/attendance.component';
 import { AssignmentComponent } from './teacher-panel/labs/assignment/assignment.component';
 import { SubmissionsComponent } from './teacher-panel/labs/submissions/submissions.component';
+import { LabsStudentsComponent } from './student-panel/labs-students/labs-students.component';
+import { AssignmentStudentsComponent } from './student-panel/labs-students/assignment-students/assignment-students.component';
+import { SubmissionStudentComponent } from './student-panel/labs-students/assignment-students/submission-student/submission-student.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/user/login',pathMatch:'full'},
@@ -37,7 +40,12 @@ const routes: Routes = [
     {path: 'labs/assignment', component:AssignmentComponent},
     {path: 'labs/assignment/submissions', component:SubmissionsComponent}
   ]},
-  {path:'studentpanel',component:StudentPanelComponent,canActivate:[AuthGuard],data :{permittedRoles:['Student']}}
+  {path:'studentpanel',component:StudentPanelComponent,canActivate:[AuthGuard],data :{permittedRoles:['Student']},
+  children: [
+    {path: 'labs', component: LabsStudentsComponent},
+    {path: 'labs/assignment', component: AssignmentStudentsComponent},
+    {path: 'labs/assignment/submission', component: SubmissionStudentComponent}
+  ]}
 ];
 
 @NgModule({

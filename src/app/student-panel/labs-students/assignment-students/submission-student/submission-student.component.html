@@ -1,0 +1,38 @@
+<div class="jumbotron py-3">
+    <h1 class="display-4 text-center">Assignment Submission</h1>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-6 mx-auto">
+        <form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+            <input type="hidden" name="id" [value]="service.formData.submissionId" />
+            <input type="hidden" name="assignmentId" [value]="service.formData.assignmentId" />
+
+            <div class="form-group col-sm-6 mx-auto">
+                <label>Link</label>
+                <input class="form-control form-control-lg" placeholder="Link" name="link"
+                    #link="ngModel" [(ngModel)]="service.formData.link"
+                    required minlength="4" [class.invalid]="link.invalid && link.touched">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Comment</label>
+                    <textarea cols="40" rows="5" class="form-control form-control-lg" placeholder="Comment" name="comment"
+                        #comment="ngModel" [(ngModel)]="service.formData.comment"
+                        required [class.invalid]="comment.invalid && comment.touched"></textarea>
+                </div>
+            </div>
+            <div class="form-group col-sm-6 mx-auto">
+                <label>Grade</label>
+                <input [disabled]="true" class="form-control form-control-lg" placeholder="Grade" name="grade"
+                    #grade="ngModel" [(ngModel)]="service.formData.grade">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+            </div>
+
+            <button class="btn btn-info btn-lg btn-block" type="button" (click)="navigateBackToAssignment()">Back to assignment</button>
+        </form>
+        
+    </div>
+  </div>

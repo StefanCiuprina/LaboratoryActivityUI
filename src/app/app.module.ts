@@ -36,6 +36,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { AttendanceComponent } from './teacher-panel/labs/attendance/attendance.component';
 import { AssignmentComponent } from './teacher-panel/labs/assignment/assignment.component';
 import { SubmissionsComponent } from './teacher-panel/labs/submissions/submissions.component';
+import { LabsStudentsComponent } from './student-panel/labs-students/labs-students.component';
+import { LabsStudentsFormComponent } from './student-panel/labs-students/labs-students-form/labs-students-form.component';
+import { AssignmentStudentsComponent } from './student-panel/labs-students/assignment-students/assignment-students.component';
+import { SubmissionStudentComponent } from './student-panel/labs-students/assignment-students/submission-student/submission-student.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +60,11 @@ import { SubmissionsComponent } from './teacher-panel/labs/submissions/submissio
     LabsFormComponent,
     AttendanceComponent,
     AssignmentComponent,
-    SubmissionsComponent
+    SubmissionsComponent,
+    LabsStudentsComponent,
+    LabsStudentsFormComponent,
+    AssignmentStudentsComponent,
+    SubmissionStudentComponent
   ],
   imports: [
     BrowserModule,

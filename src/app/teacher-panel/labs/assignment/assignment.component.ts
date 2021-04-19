@@ -86,6 +86,7 @@ export class AssignmentComponent implements OnInit {
   }
 
   deleteAssignment(form: NgForm) {
+    
     this.service.deleteAssignment(this.service.formData.assignmentId).subscribe(
       res => {
         this.resetForm(form);

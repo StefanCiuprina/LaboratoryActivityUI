@@ -20,11 +20,14 @@
                 <tr *ngFor="let pd of service.list">
                     <td (click)="populateForm(pd)">{{pd.studentId}}</td>
                     <td (click)="populateForm(pd)">{{pd.studentName}}</td>
+                    <td (click)="populateForm(pd)">{{pd.link}}</td>
+                    <td (click)="populateForm(pd)">{{pd.comment}}</td>
+                    <td (click)="populateForm(pd)">{{pd.submissionDate.toString().replace("T", " ")}}</td>
                     <td>
                         <select class="form-control form-control-lg" name="grade"
                         #groupId="ngModel" [(ngModel)]="pd.grade"
                         value="pd.grade" selected>
-                            <option *ngFor="let grade of grades" (click)="this.setGrade(pd, state.grade)">
+                            <option *ngFor="let grade of grades" (click)="this.setGrade(pd, grade)">
                                 {{grade}}
                             </option>
                         </select>

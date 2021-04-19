@@ -49,4 +49,10 @@ export class LabService {
       .toPromise()
       .then(res =>this.list = res as Lab[]);
   }
+
+  refreshListForGroup(groupId: number) {
+    this.http.get(`${this.baseURL}/Group${groupId}`)
+      .toPromise()
+      .then(res =>this.list = res as Lab[]);
+  }
 }

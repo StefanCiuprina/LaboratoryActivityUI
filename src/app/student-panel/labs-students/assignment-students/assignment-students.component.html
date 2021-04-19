@@ -1,0 +1,42 @@
+<div class="jumbotron py-3">
+    <h1 class="display-4 text-center">Lab Assignment</h1>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-6 mx-auto">
+        <form novalidate autocomplete="off" #form="ngForm">
+            <input type="hidden" name="id" [value]="service.formData.labId" />
+            <input type="hidden" name="assignmentId" [value]="service.formData.assignmentId" />
+
+            <div class="form-group col-sm-6 mx-auto">
+                <label>Name</label>
+                <input [disabled]="true" class="form-control form-control-lg" placeholder="Name" name="name"
+                    #name="ngModel" [(ngModel)]="service.formData.name"
+                    required minlength="4" [class.invalid]="name.invalid && name.touched">
+            </div>
+            <div class="form-group col-sm-6 mx-auto">
+                <mat-form-field>
+                  <input [disabled]="true" matInput [ngxMatDatetimePicker]="picker1"
+                  placeholder="Deadline" name="deadline"
+                  #deadline="ngModel" [(ngModel)]="service.formData.deadline">
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <ngx-mat-datetime-picker #picker1></ngx-mat-datetime-picker>
+                </mat-form-field>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea [disabled]="true" cols="40" rows="5" class="form-control form-control-lg" placeholder="Description" name="description"
+                        #description="ngModel" [(ngModel)]="service.formData.description"
+                        required [class.invalid]="description.invalid && description.touched"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-info btn-lg btn-block" type="button" [disabled]="service.formData.assignmentId == 0" (click)="navigateToSubmission()">Create/Update Submission</button>
+            </div>
+
+            <button class="btn btn-info btn-lg btn-block" type="button" (click)="navigateBackToLabs()">Back to labs</button>
+        </form>
+        
+    </div>
+  </div>

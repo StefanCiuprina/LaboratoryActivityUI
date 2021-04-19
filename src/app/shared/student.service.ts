@@ -64,4 +64,22 @@ export class StudentService {
       .toPromise()
       .then(res =>this.list = res as Student[]);
   }
+
+  async getStudentById(id: number): Promise<Student> {
+    let student: Student;
+    await this.http.get(`${this.baseURL}/Student${id}`)
+      .toPromise()
+      .then(res => student = res as Student);
+    
+    return student;
+  }
+
+  async getStudentByUsername(username: string): Promise<Student> {
+    let student: Student;
+    await this.http.get(`${this.baseURL}/StudentName/${username}`)
+      .toPromise()
+      .then(res => student = res as Student);
+    
+    return student;
+  }
 }

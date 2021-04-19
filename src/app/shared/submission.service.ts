@@ -57,9 +57,27 @@ export class SubmissionService {
     return submission;
   }
 
+  async getByStudentAndAssignment(assignmentId: number, studentId: string): Promise<Submission> {
+    let submission: Submission;
+    await this.http.get(`${this.baseURL}/ByStudentAndAssignment${assignmentId}/${studentId}`)
+      .toPromise()
+      .then(res => submission = res as Submission);
+    
+    if(submission == null) {
+      return new Submission();
+    }
+    return submission;
+  }
+
   refreshList(assignmentId: number) {
     this.http.get(`${this.baseURL}/${assignmentId}`)
       .toPromise()
       .then(res =>this.list = res as Submission[]);
+  }
+
+  fillFormData(submissionId: number) {
+    this.http.get(`${this.baseURL}/Submission${submissionId}`)
+      .toPromise()
+      .then(res =>this.formData = res as Submission);
   }
 }
